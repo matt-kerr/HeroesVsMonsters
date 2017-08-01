@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>120</y>
+      <w>360</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>*GameStateManager*
+--
+- startMenuState : GameState
+- charSelectMenuState : GameState
+- playGameState : GameState
+- attackState : GameState
+- gameOverState : GameState
+- currentState : GameState
+- panel : GamePanel
+- group : HeroGroup
+- enemyGroup : EnemyGroup
+- gameMap : Map
+--
++ GSM(panel : GamePanel)
++ getGroup() : HeroGroup
++ setEnemyGroup(enemyGroup : EnemyGroup) : void
++ getEnemyGroup() : EnemyGroup
++ getPanel() : GamePanel
++ getStartMenuState() : GameState
++ getCharSelectMenuState() : GameState
++ getPlayGameState() : GameState
++ getAttackState() : GameState
++ getGameOverState() : GameState
++ getCurrentState() : GameState
++ setGameState(state : GameState)
++ draw() : BufferedImage
++ getReturnState() : void
++ getGameMap() : Map
++ setGameMap(gameMap : Map) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1000</x>
+      <y>40</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>*Game*
+--
+gamePanel : JPanel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>930</x>
+      <y>120</y>
+      <w>330</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>*GamePanel*
+--
++ HEIGHT : int
++ WIDTH : int
++ image : BufferedImage
++ dndGSM : GSM
++ running : boolean
++ REFRESH_LOOP : long
++ thread : Thread
+--
++ GamePanel()
++ addNotify() : void
++ init() : void
++ keyTyped (e : KeyEvent) : void
++ keyPressed(e : KeyEvent) : void
++ keyReleased(e : KeyEvent) : void
++ run() : void
++ draw() : void
++ paintComponent(g : Graphics) : void
++ update() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>40</y>
+      <w>240</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>*StartMenuState*
+--
+- startMenu[ ] : BufferedImage
+- curFrame : BufferedImage
+- dndGSM : GSM
+- cycle : int
+- next : JButton
+--
++ StartMenuState(dndGSM : GSM)
++ actionPerformed(e : ActionEvent)
+- menuAnimation() : void
++ init() : void
++ update() : void
++ handleInput() : void
++ draw() : BufferedImage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>290</y>
+      <w>240</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>*CharSelectMenuState*
+--
+- dndGSM : GSM
+- curFrame : BufferedImage
+- counter : int
+- wizard : JCheckBox
+- elf : JCheckBox
+- warrior: JCheckBox
+- next: JButton
+--
++ actionPerformed(e : ActionEvent)
++ init() : void
++ update() : void
++ handleInput() : void
++ draw() : BufferedImage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>140</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>340</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>540</y>
+      <w>240</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>*PlayGameState*
+--
+- dndGSM : GSM
+- gameMap : Map
+- curFrame : BufferedImage
+- locX : int
+- locY : int
+- invPanel : InventoryPanel
+- returned : boolean
+--
++ PlayGameState(dndGSM : GSM)
++ init() : void
++ update() : void
++ handleInput() : void
++ draw() : BufferedImage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>550</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>930</x>
+      <y>450</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>*AttackState*
+--
+(UML is on its own page)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>470</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>930</x>
+      <y>520</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>*GameOverState*
+--
+- dndGSM : GSM
+--
++ GameOverState(dndGSM : GSM</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>540</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>570</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>80</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>230</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>610</y>
+      <w>320</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>*HeroGroup*
+--
+- group : ArrayList&lt;GoodGuy&gt;
+- curLoc : GroupLocation
+- createGG : GoodGuyFactory
+- heroInventory : Inventory
+--
++ HeroGroup(x : int, y : int)
++ getHeroInventory() : Inventory
++ getHero(i : int) : GoodGuy
++ addHero(type : String, name : String) : void
++ getGoodGuyLocation() : int[ ]
++ setGoodGuyLocation(xLoc : int, yLoc : int) : void
++ getGroupSize() : int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>610</y>
+      <w>290</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>*EnemyGroup*
+--
+- location : GroupLocation
+- encounterFactory : EncounterFactory
+- enemyGroup : ArrayList&lt;Enemy&gt;
+--
++ EnemyGroup(xloc : int, yloc : int, level : int)
++ generateEnemyGroup(i : int) : void
++ getEnemy(i : int) : Enemy
++ getEnemyCount() : int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>820</x>
+      <y>790</y>
+      <w>140</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>*GroupLocation*
+--
+- x : int
+- y : int
+--
++ getX() : int
++ setX(x : int) : void
++ getY() : int
++ setY(y : int) : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>570</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>750</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>810</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>40</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>*Map*
+--
+(UML is on its own page)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>80</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>710</x>
+      <y>40</y>
+      <w>240</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>NOTE:
+GameStateManager is abbreviated
+to GSM to save space
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
