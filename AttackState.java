@@ -1,11 +1,6 @@
-// Binary Search Team
 // Matthew Kerr
-// Nick Witmer
-// Tim Unger
-//
-// CSCD 349
-// Final Project: Dungeons and Dragons
-// Winter 2015
+// The majority of my work for this project went into this class which handles all combat systems for the game
+// The entire project is also available in the sub folder for those who would like to try playing the game
 
 package GUI;
 
